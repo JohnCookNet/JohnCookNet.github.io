@@ -77,7 +77,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install gnome desktop environment ~2GB
 # pacstrap -K /mnt gnome networkmanager qemu-guest-agent
-# Install kde0 desktop environment ~GB
+# Install kde0 desktop environment ~1.4GB
 # pacstrap -K /mnt xfce4 xfce4-terminal xfce4-goodies sddm kitty firefox nm-connection-editor neofetch mousepad sbctl
 
 # Enable required services
