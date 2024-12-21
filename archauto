@@ -42,7 +42,9 @@ pacstrappacs=(
         )    
 ### Desktop packages #####
 guipacs=(
-	plasma 
+	xfce4
+	xfce4-terminal
+	xfce4-goodies
 	sddm 
 	kitty
 	firefox 
