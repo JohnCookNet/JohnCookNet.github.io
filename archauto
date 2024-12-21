@@ -3,7 +3,7 @@
 #set -xeuo pipefail
 
 ##Preparation
-#sh -c "$(curl -sSL https://johncooknet.github.io/archinstall)"
+#sh -c "$(curl -sSL https://johncooknet.github.io/archauto)"
 
 #check if we're root
 if [[ "$UID" -ne 0 ]]; then
