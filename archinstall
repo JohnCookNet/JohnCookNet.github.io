@@ -1,4 +1,5 @@
 ##Preparation
+#sh -c "$(curl -sSL https://johncooknet.github.io/archinstall)"
 
 # Load keyboard layout (replace de with us, fr, es if needed)
 loadkeys us
