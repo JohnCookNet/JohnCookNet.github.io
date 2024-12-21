@@ -54,7 +54,7 @@ mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}}
 mount /dev/sda1 /mnt/boot/efi
 
 # Install base packages ~2m
-pacstrap -K /mnt base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware grub efibootmgr
 
 # Install optional packages for reflector ~1m
 # pacstrap -K /mnt base-devel git vim openssh reflector rsync amd-ucode
@@ -71,7 +71,10 @@ echo archlinux-vm > /etc/hostname
 
 # Install grub bootloader
 pacman -S grub
-grub-install /dev/sda
+
+# grub-install /dev/sda
+# Grub installation 
+#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable 
 
 # Create grub config
 #grub-mkconfig -o /boot/grub/grub.cfg
