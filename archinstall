@@ -64,3 +64,27 @@ cat /mnt/etc/fstab
 
 # Chroot to installed sytem 
 arch-chroot /mnt
+
+# Set hostname
+echo archlinux-vm > /etc/hostname
+
+# Install grub bootloader
+pacman -S grub
+grub-install /dev/sda
+
+# Create grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Install gnome desktop environment
+# pacman -S gnome networkmanager qemu-guest-agent
+
+# Enable required services
+systemctl enable gdm.service
+systemctl enable NetworkManager.service
+
+# Set root passwd
+passwd
+
+# Shutdown
+#exit
+#shutdown now
