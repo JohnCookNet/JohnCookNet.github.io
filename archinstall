@@ -43,15 +43,15 @@ partprobe -s "$targetdisk"
 sleep 2
 
 # Format partitions 
-#mkfs.fat -F 32 /dev/sda1
-#mkswap -L swap /dev/sda2
-#mkfs.ext4 -L archroot -F /dev/sda3
+mkfs.fat -F 32 /dev/sda1
+mkswap -L swap /dev/sda2
+mkfs.ext4 -L archroot -F /dev/sda3
 
 # Mount file system volumes
-#mount /dev/sda3 /mnt
-#swapon /dev/sda2
-#mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
-#mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda3 /mnt
+swapon /dev/sda2
+mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
+mount /dev/sda1 /mnt/boot/efi
 
 # Install base packages ~2m
 #pacstrap -K /mnt base linux linux-firmware
