@@ -76,7 +76,7 @@ grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install gnome desktop environment
-# pacstrap -K gnome networkmanager qemu-guest-agent
+# pacstrap -K /mnt gnome networkmanager qemu-guest-agent
 
 # Enable required services
 systemctl enable gdm.service
