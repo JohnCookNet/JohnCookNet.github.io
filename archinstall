@@ -50,7 +50,7 @@ mkfs.ext4 -L archroot -F /dev/sda3
 # Mount file system volumes
 mount /dev/sda3 /mnt
 swapon /dev/sda2
-mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
+mkdir -p /mnt/{efi,boot/efi,home,.snapshots,var/{cache,log}} 
 # mount /dev/sda1 /mnt/boot/efi
 mount /dev/sda1 /mnt/efi
 
