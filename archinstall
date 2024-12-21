@@ -64,10 +64,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab 
 
 # Chroot to installed sytem 
-#arch-chroot /mnt
+arch-chroot /mnt
 
 # Set hostname
-#echo archlinux-vm > /etc/hostname
+echo archlinux-vm > /etc/hostname
 
 # Install grub bootloader
 #pacman -S grub
