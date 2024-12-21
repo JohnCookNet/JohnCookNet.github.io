@@ -51,3 +51,13 @@ mount /dev/sda1 /mnt
 swapon /dev/sda2
 mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
 mount /dev/sda3 /mnt/boot/efi
+
+# Install base packages ~2m
+pacstrap -K /mnt base linux linux-firmware  
+
+# Generate fstab 
+genfstab -U /mnt >> /mnt/etc/fstab 
+cat /mnt/etc/fstab 
+
+# Chroot to installed sytem 
+arch-chroot /mnt
