@@ -38,9 +38,9 @@ parted "$targetdisk" -- mkpart ext4 5121MiB 100%
 parted "$targetdisk" -- type 3 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
 
 # Reload partition table
-#sleep 2
-#partprobe -s "$targetdisk"
-#sleep 2
+sleep 2
+partprobe -s "$targetdisk"
+sleep 2
 
 # Format partitions 
 #mkfs.fat -F 32 /dev/sda1
