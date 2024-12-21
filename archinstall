@@ -1,0 +1,33 @@
+##Preparation
+
+# Load keyboard layout (replace de with us, fr, es if needed)
+loadkeys us
+
+# Increase font size (optional)
+setfont ter-p20b
+
+# Check internet connection
+ping -c1 www.archlinux.org
+
+# Check for partitions
+lsblk
+
+# Unified Extensible Firmware Interface UEFI with GUID Partition Table (GPT)
+# Label disk (sda) as GPT, create 3 partitions (root, swap, boot). uefi requires efi system partition (esp). Spec'd for 32GB virtual disk
+wipefs -a -f /dev/sda
+parted /dev/sda -- mklabel gpt
+parted /dev/sda -- mkpart primary 512MB -8GB
+parted /dev/sda -- mkpart primary linux-swap -8GB 100%
+parted /dev/sda -- mkpart ESP fat32 1MB 512MB
+parted /dev/sda -- set 3 esp on
+
+# Format partitions 
+mkfs.ext4 -L archroot -F /dev/sda1
+mkswap -L swap /dev/sda2
+mkfs.fat -F 32 /dev/sda3
+
+# Mount file system volumes
+mount /dev/sda1 /mnt
+swapon /dev/sda2
+mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
+mount /dev/sda3 /mnt/boot/efi
