@@ -20,7 +20,7 @@ timezone="America/New_York"
 hostname="arch-test"
 username="osceola"
 #SHA512 hash of password. To generate, run 'mkpasswd -m sha-512', don't forget to prefix any $ symbols with \ . The entry below is the hash of 'password'
-user_password="$5$tEV20u.A.3a7znAS$KiXA2181fwBdkeaIuv8oZtulaMxFvg5bs3ROeduMS97"
+user_password="\$5\$tEV20u.A.3a7znAS\$KiXA2181fwBdkeaIuv8oZtulaMxFvg5bs3ROeduMS97"
 
 #To fully automate the setup, change badidea=no to yes, and enter a cleartext password for the disk encryption 
 
