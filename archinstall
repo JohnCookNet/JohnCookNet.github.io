@@ -69,10 +69,10 @@ arch-chroot /mnt
 # Set hostname
 echo archlinux-vm > /etc/hostname
 
-# Install grub bootloader
-pacman -S grub
+  ## Install grub bootloader
+  ## pacman -S grub
+  ## grub-install /dev/sda
 
-# grub-install /dev/sda
 # Grub installation 
 #grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable 
 
