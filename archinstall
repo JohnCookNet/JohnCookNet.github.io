@@ -53,7 +53,10 @@ mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}}
 mount /dev/sda3 /mnt/boot/efi
 
 # Install base packages ~2m
-pacstrap -K /mnt base linux linux-firmware  
+pacstrap -K /mnt base linux linux-firmware
+
+# Install optional packages for reflector ~1m
+# pacstrap -K /mnt base-devel git vim openssh reflector rsync amd-ucode
 
 # Generate fstab 
 genfstab -U /mnt >> /mnt/etc/fstab 
