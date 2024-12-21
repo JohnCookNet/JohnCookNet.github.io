@@ -70,8 +70,8 @@ arch-chroot /mnt
 echo archlinux-vm > /etc/hostname
 
 # Install grub bootloader
-#pacman -S grub
-#grub-install /dev/sda
+pacman -S grub
+grub-install /dev/sda
 
 # Create grub config
 #grub-mkconfig -o /boot/grub/grub.cfg
