@@ -75,8 +75,9 @@ grub-install /dev/sda
 # Create grub config
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Install gnome desktop environment
+# Install gnome desktop environment ~2GB
 # pacstrap -K /mnt gnome networkmanager qemu-guest-agent
+# Install kde0 desktop environment ~GB
 
 # Enable required services
 systemctl enable gdm.service
