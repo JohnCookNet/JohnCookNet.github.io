@@ -36,6 +36,11 @@ parted "$targetdisk" -- mkpart primary linux-swap -8GB 100%
 parted "$targetdisk" -- mkpart ESP fat32 1MB 512MB
 parted "$targetdisk" -- set 3 esp on
 
+# Reload partition table
+sleep 2
+partprobe -s "$targetdisk"
+sleep 2
+
 # Format partitions 
 mkfs.ext4 -L archroot -F /dev/sda1
 mkswap -L swap /dev/sda2
