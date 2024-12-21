@@ -31,10 +31,11 @@ lsblk
 # Label disk (sda) as GPT, create 3 partitions (root, swap, boot). uefi requires efi system partition (esp). Spec'd for 32GB virtual disk
 wipefs -a -f "$targetdisk"
 parted "$targetdisk" -- mklabel gpt
-parted "$targetdisk" -- mkpart "root partition" 512MB -8GB
-parted "$targetdisk" -- mkpart "swap partition" linux-swap -8GB 100%
-parted "$targetdisk" -- mkpart "boot partition" fat32 1MB 512MB
-parted "$targetdisk" -- set 3 esp on
+parted "$targetdisk" -- "EFI system partition" fat32 1MiB 1025MB
+parted "$targetdisk" -- set 1 esp on
+parted "$targetdisk" -- mkpart "swap partition" linux-swap 1025MiB 5121MiB
+parted "$targetdisk" -- mkpart "root partition" ext4 5121MiB 100%
+parted "$targetdisk" -- type 3 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
 
 # Reload partition table
 sleep 2
@@ -42,15 +43,15 @@ partprobe -s "$targetdisk"
 sleep 2
 
 # Format partitions 
-mkfs.ext4 -L archroot -F /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 mkswap -L swap /dev/sda2
-mkfs.fat -F 32 /dev/sda3
+mkfs.ext4 -L archroot -F /dev/sda3
 
 # Mount file system volumes
-mount /dev/sda1 /mnt
+mount /dev/sda3 /mnt
 swapon /dev/sda2
 mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}} 
-mount /dev/sda3 /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
 
 # Install base packages ~2m
 pacstrap -K /mnt base linux linux-firmware
