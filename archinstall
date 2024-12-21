@@ -16,10 +16,10 @@ username="osceola"
 user_password="\$5\$tEV20u.A.3a7znAS\$KiXA2181fwBdkeaIuv8oZtulaMxFvg5bs3ROeduMS97"
 
 # Load keyboard layout (replace de with us, fr, es if needed)
-loadkeys $keymap
+loadkeys "$keymap"
 
 # Increase font size (optional)
-setfont $fontpref
+setfont "$fontpref"
 
 # Check internet connection
 ping -c1 www.archlinux.org
@@ -29,12 +29,12 @@ lsblk
 
 # Unified Extensible Firmware Interface UEFI with GUID Partition Table (GPT)
 # Label disk (sda) as GPT, create 3 partitions (root, swap, boot). uefi requires efi system partition (esp). Spec'd for 32GB virtual disk
-wipefs -a -f /dev/sda
-parted $targetdisk -- mklabel gpt
-parted $targetdisk -- mkpart primary 512MB -8GB
-parted $targetdisk -- mkpart primary linux-swap -8GB 100%
-parted $targetdisk -- mkpart ESP fat32 1MB 512MB
-parted $targetdisk -- set 3 esp on
+wipefs -a -f "$targetdisk"
+parted "$targetdisk" -- mklabel gpt
+parted "$targetdisk" -- mkpart primary 512MB -8GB
+parted "$targetdisk" -- mkpart primary linux-swap -8GB 100%
+parted "$targetdisk" -- mkpart ESP fat32 1MB 512MB
+parted "$targetdisk" -- set 3 esp on
 
 # Format partitions 
 mkfs.ext4 -L archroot -F /dev/sda1
