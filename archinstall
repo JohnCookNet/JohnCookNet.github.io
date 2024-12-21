@@ -54,27 +54,27 @@ mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}}
 mount /dev/sda1 /mnt/boot/efi
 
 # Install base packages ~2m
-pacstrap -K /mnt base linux linux-firmware
+#pacstrap -K /mnt base linux linux-firmware
 
 # Install optional packages for reflector ~1m
 # pacstrap -K /mnt base-devel git vim openssh reflector rsync amd-ucode
 
 # Generate fstab 
-genfstab -U /mnt >> /mnt/etc/fstab 
-cat /mnt/etc/fstab 
+#genfstab -U /mnt >> /mnt/etc/fstab 
+#cat /mnt/etc/fstab 
 
 # Chroot to installed sytem 
-arch-chroot /mnt
+#arch-chroot /mnt
 
 # Set hostname
-echo archlinux-vm > /etc/hostname
+#echo archlinux-vm > /etc/hostname
 
 # Install grub bootloader
-pacman -S grub
-grub-install /dev/sda
+#pacman -S grub
+#grub-install /dev/sda
 
 # Create grub config
-grub-mkconfig -o /boot/grub/grub.cfg
+#grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install gnome desktop environment ~2GB
 # pacstrap -K /mnt gnome networkmanager qemu-guest-agent
