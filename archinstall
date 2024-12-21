@@ -81,11 +81,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # pacstrap -K /mnt xfce4 xfce4-terminal xfce4-goodies sddm kitty firefox nm-connection-editor neofetch mousepad sbctl
 
 # Enable required services
-systemctl enable gdm.service
-systemctl enable NetworkManager.service
+#systemctl enable gdm.service
+#systemctl enable NetworkManager.service
 
 # Set root passwd
-passwd
+# passwd
 
 # Shutdown
 #exit
