@@ -54,7 +54,7 @@ mkdir -p /mnt/{efi,boot,home,.snapshots,var/{cache,log}}
 mount /dev/sda1 /mnt/efi
 
 # Install base packages ~2m
-pacstrap -K /mnt base linux linux-firmware efibootmgr
+pacstrap -K /mnt base linux linux-firmware efibootmgr refind
 
 # Install optional packages for reflector ~1m
 # pacstrap -K /mnt base-devel git vim openssh reflector rsync amd-ucode
