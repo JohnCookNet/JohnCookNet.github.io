@@ -54,7 +54,7 @@ mkdir -p /mnt/{efi,boot,home,.snapshots,var/{cache,log}}
 mount /dev/sda1 /mnt/efi
 
 # Install base packages ~2m
-pacstrap -K /mnt base linux linux-firmware grub efibootmgr
+pacstrap -K /mnt base linux linux-firmware efibootmgr
 
 # Install optional packages for reflector ~1m
 # pacstrap -K /mnt base-devel git vim openssh reflector rsync amd-ucode
@@ -74,10 +74,10 @@ echo archlinux-vm > /etc/hostname
   ## grub-install /dev/sda
 
 # Grub installation 
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --removable 
+#grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --removable 
 
 # Create grub config
-grub-mkconfig -o /boot/grub/grub.cfg
+#grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install gnome desktop environment ~2GB
 # pacstrap -K /mnt gnome networkmanager qemu-guest-agent
