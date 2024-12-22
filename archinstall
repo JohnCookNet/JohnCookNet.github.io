@@ -79,6 +79,9 @@ echo archlinux-vm > /etc/hostname
 # Create grub config
 #grub-mkconfig -o /boot/grub/grub.cfg
 
+#To add a new boot option using efibootmgr
+efibootmgr --create --disk /dev/sda --part 1 --loader '\EFI\refind\refind_x64.efi' --label 'rEFInd Boot Manager' --unicode
+
 # Install gnome desktop environment ~2GB
 # pacstrap -K /mnt gnome networkmanager qemu-guest-agent
 # Install xfce desktop environment ~1.4GB
